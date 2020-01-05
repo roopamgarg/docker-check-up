@@ -8,3 +8,17 @@ before_install:
 
 script:
     - docker run -e CI=true roopam527/docker-check-up npm run test
+
+
+deploy:
+    provider: elasticbeanstalk
+    region: "ap-south-1"
+    app: "projectx"
+    env: "Projectx-env"
+    bucket_name: "elasticbeanstalk-ap-south-1-073494628974"
+    bucket_path: "projectx"
+    on:
+        branch: master 
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
+        secure: "$AWS_SECRET_KEY"
