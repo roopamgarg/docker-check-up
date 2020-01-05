@@ -7,4 +7,4 @@ before_install:
     - docker build -t roopam527/docker-check-up -f Dockerfile.dev .
 
 script:
-    - docker run roopam527/docker-check-up npm run test -- --coverage
+    - docker run -e CI=true roopam527/docker-check-up npm run test
